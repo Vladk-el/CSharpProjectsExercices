@@ -1,0 +1,8 @@
+C:\Users\Vladk\Documents\GitHub\CSharpProjectsExercices\Projects\nurl\nurl\bin\Debug\nurl.exe.config
+C:\Users\Vladk\Documents\GitHub\CSharpProjectsExercices\Projects\nurl\nurl\bin\Debug\nurl.exe
+C:\Users\Vladk\Documents\GitHub\CSharpProjectsExercices\Projects\nurl\nurl\bin\Debug\nurl.pdb
+C:\Users\Vladk\Documents\GitHub\CSharpProjectsExercices\Projects\nurl\nurl\bin\Debug\nunit.framework.dll
+C:\Users\Vladk\Documents\GitHub\CSharpProjectsExercices\Projects\nurl\nurl\bin\Debug\nunit.framework.xml
+C:\Users\Vladk\Documents\GitHub\CSharpProjectsExercices\Projects\nurl\nurl\obj\Debug\nurl.csprojResolveAssemblyReference.cache
+C:\Users\Vladk\Documents\GitHub\CSharpProjectsExercices\Projects\nurl\nurl\obj\Debug\nurl.exe
+C:\Users\Vladk\Documents\GitHub\CSharpProjectsExercices\Projects\nurl\nurl\obj\Debug\nurl.pdb
