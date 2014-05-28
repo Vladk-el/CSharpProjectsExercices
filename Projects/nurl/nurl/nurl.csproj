@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NurlParams.cs" />
     <Compile Include="Nurl_tests.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

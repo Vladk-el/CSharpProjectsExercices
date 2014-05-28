@@ -14,7 +14,7 @@ namespace nurl
 {
 	class MainClass
 	{
-		public static void Main(string[] args)
+		/*public static void Main(string[] args)
 		{
 			Console.WriteLine("Hello World!");
 			
@@ -39,7 +39,7 @@ namespace nurl
 			
 			ShowAverageDowloadTimeOfAWebPage(url, 5);
 			
-		}
+		}*/
 		
 		public void ShowTheContentOfAWebPage(string url){ // -url "urlOfAWebPage"
 			//Console.WriteLine("ShowTheContentOfAPage of page : " + url);
@@ -76,7 +76,7 @@ namespace nurl
 		
 		public void ShowDowloadTimeOfAWebPage(string url, int numberOfTimeToExecute){  // -url "urlOfAWebPage" -time numberOfTimeToExecute
 			
-			Console.WriteLine("ShowDowloadTimeOfAWebPage of page : " + url + " * : " + numberOfTimeToExecute);
+			//Console.WriteLine("ShowDowloadTimeOfAWebPage of page : " + url + " * : " + numberOfTimeToExecute);
 			
 			for(int i = 0; i < numberOfTimeToExecute; i++){
 				Console.Write(ShowDowloadTimeOfAWebPage(url) + " ");
@@ -86,7 +86,7 @@ namespace nurl
 		
 		public void ShowAverageDowloadTimeOfAWebPage(string url, int numberOfTimeToExecute){  // -url "urlOfAWebPage" -time numberOfTimeToExecute -avg
 			
-			Console.WriteLine("ShowAverageDowloadTimeOfAWebPage of page : " + url + " * : " + numberOfTimeToExecute);
+			//Console.WriteLine("ShowAverageDowloadTimeOfAWebPage of page : " + url + " * : " + numberOfTimeToExecute);
 			
 			double averageDownloadedTime = 0;
 			
