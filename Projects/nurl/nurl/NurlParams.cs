@@ -31,12 +31,14 @@ namespace nurl
 						if((array[i+2].StartsWith("\"") || array[i+2].EndsWith("\""))  && array[i+2].Length > 2){
 							if(i+3 == array.Length){
 								Console.WriteLine("GET URL");
+								new Nurl(array[i+2].Replace("\"", ""));
 								break;
 							}
 							else if(i+5 == array.Length){
 								if(array[i+3] == "-save"){
 									if((array[i+4].StartsWith("\"") || array[i+4].EndsWith("\"")) && array[i+4].Length > 2){
 										Console.WriteLine("GET URL SAVE");
+										new Nurl(array[i+2].Replace("\"", ""), array[i+4].Replace("\"", ""));
 										break;
 									}
 									else{
@@ -59,7 +61,8 @@ namespace nurl
 								
 								if(i+5 == array.Length){
 									if(Convert.ToInt32(array[i+4]) > 0){
-										Console.WriteLine("TEST URL SAVE");
+										Console.WriteLine("TEST URL");
+										new Nurl(array[i+2].Replace("\"", ""), Convert.ToInt32(array[i+4]), false);
 										break;
 									}
 									else{
@@ -68,7 +71,8 @@ namespace nurl
 								}
 								else if(i+6 == array.Length){
 									if(array[i+5] == "-avg"){
-										Console.WriteLine("TEST URL SAVE AVG");
+										Console.WriteLine("TEST URL AVG");
+										new Nurl(array[i+2].Replace("\"", ""), Convert.ToInt32(array[i+4]), true);
 										break;
 									}
 									else{
@@ -88,7 +92,7 @@ namespace nurl
 			
 			NurlParams param = new NurlParams();
 			
-			string[] array = param.testTestUrlAverage();
+			string[] array = param.testGetUrl();
 			
 			NurlParams np = new NurlParams(array);
 
