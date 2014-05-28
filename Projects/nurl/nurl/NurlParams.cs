@@ -48,14 +48,36 @@ namespace nurl
 						else{
 							Console.WriteLine("ERROR : USAGE get -url \"YourUrl\" ");
 						}
-						
 					}
-					
-					else if(array[i] == "test"){
-						
+				}
+				else if(array[i] == "test"){
+					Console.WriteLine("test is here !");
+					if(array[i+1] == "-url"){
+						if((array[i+2].StartsWith("\"") || array[i+2].EndsWith("\""))  && array[i+2].Length > 2){
+							Console.WriteLine("-url OK");
+							if(array[i+3] == "-times"){
+								
+								if(i+5 == array.Length){
+									if(Convert.ToInt32(array[i+4]) > 0){
+										Console.WriteLine("TEST URL SAVE");
+										break;
+									}
+									else{
+										Console.WriteLine("ERROR : USAGE test -url \"YourUrl\" -times numberOfTimeYouWantToTest");
+									}
+								}
+								else if(i+6 == array.Length){
+									if(array[i+5] == "-avg"){
+										Console.WriteLine("TEST URL SAVE AVG");
+										break;
+									}
+									else{
+										Console.WriteLine("ERROR : USAGE test -url \"YourUrl\" -times numberOfTimeYouWantToTest -AVG");
+									}
+								}
+							}
+						}
 					}
-					
-					
 				}
 			}
 		}
@@ -66,7 +88,7 @@ namespace nurl
 			
 			NurlParams param = new NurlParams();
 			
-			string[] array = param.testGetUrlSave();
+			string[] array = param.testTestUrlAverage();
 			
 			NurlParams np = new NurlParams(array);
 
@@ -99,7 +121,7 @@ namespace nurl
 		public string[] testTestUrl(){
 			string[] array = new string[6];
 			array[0] = "nurl.exe";
-			array[1] = "get";
+			array[1] = "test";
 			array[2] = "-url";
 			array[3] = "\"http://fake\"";
 			array[4] = "-times";
@@ -109,9 +131,9 @@ namespace nurl
 		}
 		
 		public string[] testTestUrlAverage(){
-			string[] array = new string[6];
+			string[] array = new string[7];
 			array[0] = "nurl.exe";
-			array[1] = "get";
+			array[1] = "test";
 			array[2] = "-url";
 			array[3] = "\"http://fake\"";
 			array[4] = "-times";
