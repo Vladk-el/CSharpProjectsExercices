@@ -8,6 +8,7 @@
  */
 using System;
 using System.Net;
+using System.IO;
 
 namespace nurl
 {
@@ -32,7 +33,11 @@ namespace nurl
 			
 			string url = "http://fake";
 			
-			ShowTheContentOfAWebPage(url);
+			//string url = "http://www.google.fr/";
+			
+			string fileName = "fake.txt";
+			
+			SaveTheContentOfAWebPage(url, fileName);
 			
 		}
 		
@@ -51,8 +56,21 @@ namespace nurl
 			Console.WriteLine(downloadString);
 		}
 		
-		public void SaveTheContentOfAWebPage(string url){ // -url "http://fake" -save
-			Console.WriteLine("SaveTheContentOfAPage of page : " + url);
+		public void SaveTheContentOfAWebPage(string url, string fileName){ // -url "http://fake" -save "fileName"
+			//Console.WriteLine("SaveTheContentOfAPage of page : " + url + " in file : " + fileName);
+			
+			WebClient client = new WebClient();
+			
+			string downloadString = "<h1>hello</h1>";
+			
+			try{
+				downloadString = client.DownloadString(url);
+			}catch(WebException e){
+				//Console.WriteLine("Erreur, return standard response");
+			}
+            TextWriter tw = new StreamWriter(fileName);
+            tw.WriteLine(downloadString);
+            tw.Close();
 		}
 		
 		public void ShowDowloadTimeOfAWebPage(string url){
