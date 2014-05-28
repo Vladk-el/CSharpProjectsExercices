@@ -29,8 +29,35 @@ namespace nurl
 		
 		public void test(){
 			Console.WriteLine("Test function");
+			
+			string url = "http://fake";
+			
+			ShowTheContentOfAWebPage(url);
+			
+		}
+		
+		public void ShowTheContentOfAWebPage(string url){ // -url "http://fake"
+			//Console.WriteLine("ShowTheContentOfAPage of page : " + url);
 			WebClient client = new WebClient();
-			// DownloadFile(String, String)
+			
+			string downloadString = "<h1>hello</h1>";
+			
+			try{
+				downloadString = client.DownloadString(url);
+			}catch(WebException e){
+				//Console.WriteLine("Erreur, return standard response");
+			}
+			
+			Console.WriteLine(downloadString);
+		}
+		
+		public void SaveTheContentOfAWebPage(string url){ // -url "http://fake" -save
+			Console.WriteLine("SaveTheContentOfAPage of page : " + url);
+		}
+		
+		public void ShowDowloadTimeOfAWebPage(string url){
+			 // En cours
+			WebClient client = new WebClient();
 			
 			DateTime before = DateTime.Now;
 			string downloadString = client.DownloadString("http://www.gooogle.com");
@@ -39,25 +66,6 @@ namespace nurl
 			TimeSpan time = after - before;
 			
 			Console.WriteLine("Download duration : " + time.TotalMilliseconds + " (ms)");
-			
-			//client.DownloadStringCompleted += new DownloadStringCompletedEventHandler (DowloadTime);
-			
-			//Console.WriteLine(downloadString);
-		}
-		
-		public void ShowTheContentOfAPage(string url){
-			Console.WriteLine("ShowTheContentOfAPage of page : " + url);
-			WebClient client = new WebClient();
-			
-			string downloadString = client.DownloadString(url);
-			Console.WriteLine(downloadString);
-		}
-		
-		public double DowloadTime(DateTime before){
-			DateTime after = DateTime.Now;
-			
-			TimeSpan time = after - before;
-			return time.TotalMilliseconds;
 		}
 	}
 }
