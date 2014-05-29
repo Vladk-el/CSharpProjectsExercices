@@ -100,6 +100,32 @@ namespace nurl
 		
 		
 		[Test]
+		public void Should_return_the_average_download_time_of_a_web_page_in_double(){
+			Nurl test = new Nurl();
+			
+			double response = test.ShowDowloadTimeOfAWebPage(fakeUrl);
+			Assert.AreEqual(response.GetType(), typeof(double));
+		}
+		
+		[Test]
+		public void Should_return_the_average_download_time_of_a_fake_web_page(){
+			Nurl test = new Nurl();
+			
+			double response = test.ShowDowloadTimeOfAWebPage(fakeUrl);
+			Assert.AreEqual(response, fakeAverageDuration);
+		}
+		
+		[Test]
+		public void Should_return_the_average_download_time_of_a_web_page(){
+			Nurl test = new Nurl();
+			
+			double response = test.ShowDowloadTimeOfAWebPage(realUrl);
+			Assert.AreNotEqual(response, fakeAverageDuration);
+		}
+		
+		
+		
+		[Test]
 		public void Should_return_the_download_time_of_a_web_page_for_five_iterations_in_string(){
 			Nurl test = new Nurl();
 			
