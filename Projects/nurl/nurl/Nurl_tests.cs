@@ -91,7 +91,7 @@ namespace nurl
 		public void Should_save_the_content_of_a_real_page_in_a_file(){
 			Nurl test = new Nurl();
 			
-			bool response = test.SaveTheContentOfAWebPage(fakeUrl, realFile);
+			bool response = test.SaveTheContentOfAWebPage(realUrl, realFile);
 			
 			var fullText = System.IO.File.ReadAllText(realFile);
 			Assert.AreNotEqual(fullText, errorResponse + "\r\n");

@@ -33,27 +33,22 @@ namespace nurl
 							
 							if((array[i+2].StartsWith("\"") || array[i+2].EndsWith("\""))  && array[i+2].Length > 2){
 								if(i+3 == array.Length){
-									//Console.WriteLine("GET URL");
+									new Nurl(array[i+2].Replace("\"", ""));
 									return "GET URL";
-									//new Nurl(array[i+2].Replace("\"", ""));
-									//return nurl.ShowTheContentOfAWebPage(array[i+2].Replace("\"", ""));
 								}
 								else if(i+5 == array.Length){
 									if(array[i+3] == "-save"){
 										if((array[i+4].StartsWith("\"") || array[i+4].EndsWith("\"")) && array[i+4].Length > 2){
-											//Console.WriteLine("GET URL SAVE");
+											new Nurl(array[i+2].Replace("\"", ""), array[i+4].Replace("\"", ""));
 											return "GET URL SAVE";
-											//new Nurl(array[i+2].Replace("\"", ""), array[i+4].Replace("\"", ""));
 										}
 										else{
-											//Console.WriteLine("ERROR : USAGE get -url \"YourUrl\" -save \"fileName\"");
 											return "ERROR : USAGE get -url \"YourUrl\" -save \"fileName\"";
 										}
 									}
 								}
 							}
 							else{
-								//Console.WriteLine("ERROR : USAGE get -url \"YourUrl\"");
 								return "ERROR : USAGE get -url \"YourUrl\"";
 							}
 						}
@@ -67,23 +62,19 @@ namespace nurl
 									
 									if(i+5 == array.Length){
 										if(Convert.ToInt32(array[i+4]) > 0){
-											//Console.WriteLine("TEST URL");
+											new Nurl(array[i+2].Replace("\"", ""), Convert.ToInt32(array[i+4]), false);
 											return "TEST URL";
-											//new Nurl(array[i+2].Replace("\"", ""), Convert.ToInt32(array[i+4]), false);
 										}
 										else{
-											//Console.WriteLine("ERROR : USAGE test -url \"YourUrl\" -times numberOfTimeYouWantToTest");
 											return "ERROR : USAGE test -url \"YourUrl\" -times numberOfTimeYouWantToTest";
 										}
 									}
 									else if(i+6 == array.Length){
 										if(array[i+5] == "-avg"){
-											//Console.WriteLine("TEST URL AVG");
+											new Nurl(array[i+2].Replace("\"", ""), Convert.ToInt32(array[i+4]), true);
 											return "TEST URL AVG";
-											//new Nurl(array[i+2].Replace("\"", ""), Convert.ToInt32(array[i+4]), true);
 										}
 										else{
-											//Console.WriteLine("ERROR : USAGE test -url \"YourUrl\" -times numberOfTimeYouWantToTest -AVG");
 											return "ERROR : USAGE test -url \"YourUrl\" -times numberOfTimeYouWantToTest -AVG";
 										}
 									}
@@ -95,7 +86,6 @@ namespace nurl
 			}catch(IndexOutOfRangeException e){
 				
 			}
-			
 			
 			return "ERROR : USAGE get -url \"youUrl\" [-save \"youFile\"] OR test -url \"youUrl\" -times numberOfTimeYouWantToTest [-avg]";
 		}

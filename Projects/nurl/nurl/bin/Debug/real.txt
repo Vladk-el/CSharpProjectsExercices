@@ -1,1 +1,90 @@
-<h1>hello</h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1' phtograp999/xhtml" xml:lang="fr" lang="fr">
+    <head>
+        <title>Dame TÃ©nÃ©bra Photographie</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="J'ai ouvert ma gallerie sur DeviantArt afin de voir ce que les autres pouvaient Ã©ventuellement penser de mon travail et j'ai Ã©tÃ© agrÃ©ablement surprise par les compliments!
+                                          C'est pourquoi j'ai fait ce site, bonne visite ;)">
+        <meta name="keywords" content="DameTÃ©nÃ©bra, DameTenebra, Dame TÃ©nÃ©bra, Dame Tenebra, dametÃ©nÃ©bra, dametenebra, dame tÃ©nÃ©bra, dame tenebra">
+        <meta name="author" content="DameTÃ©nÃ©bra">
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <script type="text/javascript" src="string_utils.js"></script>
+    </head>
+    <body>
+        <div class="globalContent">
+            
+<!-- <script type="text/javascript" src="jquery.min.js"></script> -->
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+<div id="header" class="header">
+	<a href="index.php">
+
+		<img src="dame tenebra.jpg" alt="Dame TÃ©nÃ©bra" class="headerLeft"/>
+
+		<img src="Photography.jpg" alt="Photography" class="headerRight"/>
+
+	</a>
+</div>
+
+<div style="clear: both;"></div>
+            <div id="bandeau" class="bandeau">
+
+	<center>
+		<img src="bandeau accueil.jpg" class="bandeauIMG"/>
+	</center>
+
+</div>
+
+<div style="clear: both;"></div><div id="menu" class="menu">
+
+	<!-- <center> -->
+		<table>
+
+			<tr>
+				<td>
+					<a href="#" title="En constructions, diponnible prochainement">
+						<img src="Bio.jpg"/>
+					</a>
+				</td>
+				<td>
+					<a href="portfolio.php">
+						<img src="Portfoli titreo.jpg" alt="Portfolio"/>
+					</a>
+				</td>
+				<td>
+					<a href="galery.php?category=1">
+						<img src="Modele.jpg"/>
+					</a>
+				</td>
+			</tr>
+
+			<tr>
+					<a href="index.php?page=links">
+						<img src="Liens.jpg"/>
+					</a>
+					<a href="index.php?page=contact">
+						<img src="Contact.jpg"/>
+					</a>
+			</tr>
+		</table>
+
+
+
+		<img src="A31_dyn.png"/>
+	<!-- <center> -->
+
+
+
+
+
+</div>
+
+<div style="clear: both;"></div>
+            <div id="footer" class="footer">
+
+	<img src="copyright dame tenebra.jpg"/>
+
+</div>        <div>
+        <h1 style="text-indent: -9999px;">Dame TÃ©nÃ©bra</h1>
+    </body>
+</html>
