@@ -96,9 +96,11 @@ namespace nurl
 			/*foreach(string s in args){
 				Console.WriteLine(s);
 			}*/
+			string response = param.SelectNurlByParameters(args);
+			if(response.StartsWith("ERROR")){
+				Console.WriteLine(response);
+			}
 			
-			param.SelectNurlByParameters(args);
-
 			/*Console.Write("Press any key to continue . . . ");
 			Console.ReadKey(true);*/
 		}
