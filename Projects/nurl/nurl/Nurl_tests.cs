@@ -24,6 +24,10 @@ namespace nurl
 		static string fakeFile = "fake.txt";
 		static string realFile = "real.txt";
 		
+		static int numberOfTimeToExecute = 5;
+		static string fakeDuration = "0 0 0 0 0 ";
+		static string fakeAverageDuration = "0";
+		
 		static string errorResponse = "<h1>hello</h1>";
 		
 		
@@ -92,6 +96,37 @@ namespace nurl
 			var fullText = System.IO.File.ReadAllText(realFile);
 			Assert.AreNotEqual(fullText, errorResponse + "\r\n");
 		}
+		
+		
+		
+		[Test]
+		public void Should_return_the_downlaod_time_of_a_web_page_for_five_iterations_in_string(){
+			Nurl test = new Nurl();
+			
+			string response = test.ShowDowloadTimeOfAWebPage(fakeUrl, 5);
+			Assert.AreEqual(response.GetType(), typeof(string));
+		}
+		
+		[Test]
+		public void Should_return_the_downlaod_time_of_a_fake_web_page_for_five_iterations(){
+			Nurl test = new Nurl();
+			
+			string response = test.ShowDowloadTimeOfAWebPage(fakeUrl, numberOfTimeToExecute);
+			Assert.AreEqual(response, fakeDuration);
+		}
+		
+		[Test]
+		public void Should_return_the_downlaod_time_of_a_web_page_for_five_iterations(){
+			Nurl test = new Nurl();
+			
+			string response = test.ShowDowloadTimeOfAWebPage(realUrl, numberOfTimeToExecute);
+			Assert.AreNotEqual(response, fakeDuration);
+		}
+		
+		
+		
+		
+		
 		
 		
 	}
