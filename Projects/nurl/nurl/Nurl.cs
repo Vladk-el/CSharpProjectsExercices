@@ -36,7 +36,7 @@ namespace nurl
 			}
 		}
 		
-		public static void Main(string[] args)
+		/*public static void Main(string[] args)
 		{
 			Console.WriteLine("Hello World!");
 			
@@ -59,7 +59,7 @@ namespace nurl
 			
 			Console.Write("Press any key to continue . . . ");
 			Console.ReadKey(true);
-		}
+		}*/
 
 		
 		public string ShowTheContentOfAWebPage(string url){ // -url "urlOfAWebPage"

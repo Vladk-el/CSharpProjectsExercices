@@ -124,6 +124,7 @@ namespace nurl
 		}
 		
 		
+		
 		[Test]
 		public void Should_return_the_average_download_time_of_a_web_page_for_five_iterations_in_double(){
 			Nurl test = new Nurl();
