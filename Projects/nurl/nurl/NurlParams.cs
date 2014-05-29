@@ -215,5 +215,17 @@ namespace nurl
 			
 			return array;
 		}
+
+		public string[] testBadArgs(){
+			string[] array = new string[6];
+			array[0] = "nurl.exe";
+			array[1] = "hey";
+			array[2] = "-url";
+			array[3] = "\"http://fake\"";
+			array[4] = "-save";
+			array[5] = "\"fake.txt\"";
+			
+			return array;
+		}
 	}
 }
