@@ -26,7 +26,7 @@ namespace nurl
 		
 		static int numberOfTimeToExecute = 5;
 		static string fakeDuration = "0 0 0 0 0 ";
-		static string fakeAverageDuration = "0";
+		static double fakeAverageDuration = 0;
 		
 		static string errorResponse = "<h1>hello</h1>";
 		
@@ -100,7 +100,7 @@ namespace nurl
 		
 		
 		[Test]
-		public void Should_return_the_downlaod_time_of_a_web_page_for_five_iterations_in_string(){
+		public void Should_return_the_download_time_of_a_web_page_for_five_iterations_in_string(){
 			Nurl test = new Nurl();
 			
 			string response = test.ShowDowloadTimeOfAWebPage(fakeUrl, 5);
@@ -108,7 +108,7 @@ namespace nurl
 		}
 		
 		[Test]
-		public void Should_return_the_downlaod_time_of_a_fake_web_page_for_five_iterations(){
+		public void Should_return_the_download_time_of_a_fake_web_page_for_five_iterations(){
 			Nurl test = new Nurl();
 			
 			string response = test.ShowDowloadTimeOfAWebPage(fakeUrl, numberOfTimeToExecute);
@@ -116,7 +116,7 @@ namespace nurl
 		}
 		
 		[Test]
-		public void Should_return_the_downlaod_time_of_a_web_page_for_five_iterations(){
+		public void Should_return_the_download_time_of_a_web_page_for_five_iterations(){
 			Nurl test = new Nurl();
 			
 			string response = test.ShowDowloadTimeOfAWebPage(realUrl, numberOfTimeToExecute);
@@ -124,7 +124,29 @@ namespace nurl
 		}
 		
 		
+		[Test]
+		public void Should_return_the_average_download_time_of_a_web_page_for_five_iterations_in_double(){
+			Nurl test = new Nurl();
+			
+			double response = test.ShowAverageDowloadTimeOfAWebPage(fakeUrl, 5);
+			Assert.AreEqual(response.GetType(), typeof(double));
+		}
 		
+		[Test]
+		public void Should_return_the_average_download_time_of_a_fake_web_page_for_five_iterations(){
+			Nurl test = new Nurl();
+			
+			double response = test.ShowAverageDowloadTimeOfAWebPage(fakeUrl, numberOfTimeToExecute);
+			Assert.AreEqual(response, fakeAverageDuration);
+		}
+		
+		[Test]
+		public void Should_return_the_average_download_time_of_a_web_page_for_five_iterations(){
+			Nurl test = new Nurl();
+			
+			double response = test.ShowAverageDowloadTimeOfAWebPage(realUrl, numberOfTimeToExecute);
+			Assert.AreNotEqual(response, fakeAverageDuration);
+		}
 		
 		
 		
