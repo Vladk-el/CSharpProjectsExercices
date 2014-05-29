@@ -17,6 +17,13 @@ namespace nurl
 	[TestFixture]
 	public class Nurl_tests
 	{
+		
+		static string fakeUrl = "http://fake";
+		static string realUrl = "http://dametenebra.com/";
+		
+		static string errorResponse = "<h1>hello</h1>";
+		
+		
 		public Nurl_tests()
 		{
 		}
@@ -26,5 +33,34 @@ namespace nurl
 			var test = "test";
 			Assert.AreEqual(test.GetType(), typeof(string));
 		}
+		
+		[Test]
+		public void Should_return_the_content_of_a_fake_page_in_string(){
+			Nurl test = new Nurl();
+			
+			string response = test.ShowTheContentOfAWebPage(fakeUrl);
+			Assert.AreEqual(response.GetType(), typeof(string));
+		}
+		
+		[Test]
+		public void Should_show_the_content_of_a_fake_page(){
+			Nurl test = new Nurl();
+			
+			string response = test.ShowTheContentOfAWebPage(fakeUrl);
+			Assert.AreEqual(response, errorResponse);
+			
+		}
+		
+		[Test]
+		public void Should_show_the_content_of_a_page(){
+			Nurl test = new Nurl();
+			
+			string response = test.ShowTheContentOfAWebPage(realUrl);
+			Assert.AreNotEqual(response, errorResponse);
+		}
+		
+		
+		
+		
 	}
 }

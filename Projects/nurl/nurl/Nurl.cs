@@ -15,8 +15,12 @@ namespace nurl
 	class Nurl
 	{
 		
+		public Nurl(){
+			
+		}
+		
 		public Nurl(string url){
-			ShowTheContentOfAWebPage(url);
+			Console.WriteLine(ShowTheContentOfAWebPage(url));
 		}
 		
 		public Nurl(string url, string fileName){
@@ -25,41 +29,40 @@ namespace nurl
 		
 		public Nurl(string url, int numberOfTimeToExecute, bool avg){
 			if(avg){
-				ShowAverageDowloadTimeOfAWebPage(url, numberOfTimeToExecute);
+				Console.WriteLine(ShowAverageDowloadTimeOfAWebPage(url, numberOfTimeToExecute));
 			}
 			else{
-				ShowDowloadTimeOfAWebPage(url, numberOfTimeToExecute);
+				Console.WriteLine(ShowDowloadTimeOfAWebPage(url, numberOfTimeToExecute));
 			}
 		}
 		
-		/*public static void Main(string[] args)
+		public static void Main(string[] args)
 		{
 			Console.WriteLine("Hello World!");
 			
 			
-			MainClass main = new MainClass();
-			main.test();
+			Nurl main = new Nurl();
 			
+			//string url = "http://fake";
 			
+			string url = "http://dametenebra.com/";
+			
+			string fileName = "fake.txt";
+			
+			new Nurl(url);
+			
+			//new Nurl(url, fileName);
+			
+			//new Nurl(url, 5, false);
+			
+			//new Nurl(url, 5, true);
 			
 			Console.Write("Press any key to continue . . . ");
 			Console.ReadKey(true);
 		}
+
 		
-		public void test(){
-			Console.WriteLine("Test function");
-			
-			string url = "http://fake";
-			
-			//string url = "http://www.google.fr/";
-			
-			string fileName = "fake.txt";
-			
-			ShowAverageDowloadTimeOfAWebPage(url, 5);
-			
-		}*/
-		
-		public void ShowTheContentOfAWebPage(string url){ // -url "urlOfAWebPage"
+		public string ShowTheContentOfAWebPage(string url){ // -url "urlOfAWebPage"
 			//Console.WriteLine("ShowTheContentOfAPage of page : " + url);
 			WebClient client = new WebClient();
 			
@@ -71,10 +74,11 @@ namespace nurl
 				//Console.WriteLine("Erreur, return standard response");
 			}
 			
-			Console.WriteLine(downloadString);
+			//Console.WriteLine(downloadString);
+			return downloadString;
 		}
 		
-		public void SaveTheContentOfAWebPage(string url, string fileName){ // -url "urlOfAWebPage" -save "fileName"
+		public bool SaveTheContentOfAWebPage(string url, string fileName){ // -url "urlOfAWebPage" -save "fileName"
 			//Console.WriteLine("SaveTheContentOfAPage of page : " + url + " in file : " + fileName);
 			
 			WebClient client = new WebClient();
@@ -86,33 +90,45 @@ namespace nurl
 			}catch(WebException e){
 				//Console.WriteLine("Erreur, return standard response");
 			}
-            TextWriter tw = new StreamWriter(fileName);
-            tw.WriteLine(downloadString);
-            tw.Close();
+			try{
+				TextWriter tw = new StreamWriter(fileName);
+	            tw.WriteLine(downloadString);
+	            tw.Close();
+			}catch(Exception e){
+				return false;
+			} 
+			
+			return true;
 		}
 		
 		
-		public void ShowDowloadTimeOfAWebPage(string url, int numberOfTimeToExecute){  // -url "urlOfAWebPage" -time numberOfTimeToExecute
+		public string ShowDowloadTimeOfAWebPage(string url, int numberOfTimeToExecute){  // -url "urlOfAWebPage" -time numberOfTimeToExecute
 			
 			//Console.WriteLine("ShowDowloadTimeOfAWebPage of page : " + url + " * : " + numberOfTimeToExecute);
 			
+			string toReturn = "";
+			
 			for(int i = 0; i < numberOfTimeToExecute; i++){
-				Console.Write(ShowDowloadTimeOfAWebPage(url) + " ");
+				toReturn += ShowDowloadTimeOfAWebPage(url) + " ";
+				//Console.Write(ShowDowloadTimeOfAWebPage(url) + " ");
 			}
-			Console.WriteLine();
+			//Console.WriteLine();
+			return toReturn;
 		}
 		
-		public void ShowAverageDowloadTimeOfAWebPage(string url, int numberOfTimeToExecute){  // -url "urlOfAWebPage" -time numberOfTimeToExecute -avg
+		public double ShowAverageDowloadTimeOfAWebPage(string url, int numberOfTimeToExecute){  // -url "urlOfAWebPage" -time numberOfTimeToExecute -avg
 			
 			//Console.WriteLine("ShowAverageDowloadTimeOfAWebPage of page : " + url + " * : " + numberOfTimeToExecute);
 			
+			string toReturn = "";
 			double averageDownloadedTime = 0;
 			
 			for(int i = 0; i < numberOfTimeToExecute; i++){
 				averageDownloadedTime += ShowDowloadTimeOfAWebPage(url);
 			}
 			
-			Console.WriteLine(averageDownloadedTime / numberOfTimeToExecute);
+			//Console.WriteLine(averageDownloadedTime / numberOfTimeToExecute);
+			return averageDownloadedTime / numberOfTimeToExecute;
 		}
 		
 		public double ShowDowloadTimeOfAWebPage(string url){  // -url "urlOfAWebPage"

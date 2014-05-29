@@ -86,7 +86,7 @@ namespace nurl
 			}
 		}
 		
-		public static void Main(string[] args)
+		/*public static void Main(string[] args)
 		{
 			Console.WriteLine("Hello NurlParams !");
 			
@@ -98,7 +98,7 @@ namespace nurl
 
 			Console.Write("Press any key to continue . . . ");
 			Console.ReadKey(true);
-		}
+		}*/
 		
 		public string[] testGetUrl(){
 			string[] array = new string[4];
