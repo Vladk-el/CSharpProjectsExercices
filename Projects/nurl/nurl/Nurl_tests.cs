@@ -21,6 +21,9 @@ namespace nurl
 		static string fakeUrl = "http://fake";
 		static string realUrl = "http://dametenebra.com/";
 		
+		static string fakeFile = "fake.txt";
+		static string realFile = "real.txt";
+		
 		static string errorResponse = "<h1>hello</h1>";
 		
 		
@@ -33,6 +36,7 @@ namespace nurl
 			var test = "test";
 			Assert.AreEqual(test.GetType(), typeof(string));
 		}
+		
 		
 		[Test]
 		public void Should_return_the_content_of_a_fake_page_in_string(){
@@ -60,6 +64,34 @@ namespace nurl
 		}
 		
 		
+		
+		[Test]
+		public void Should_return_a_boolean(){
+			Nurl test = new Nurl();
+			
+			bool response = test.SaveTheContentOfAWebPage(fakeUrl, fakeFile);
+			Assert.AreEqual(response.GetType(), typeof(bool));
+		}
+		
+		[Test]
+		public void Should_save_the_content_of_a_fake_page_in_a_file(){
+			Nurl test = new Nurl();
+			
+			bool response = test.SaveTheContentOfAWebPage(fakeUrl, fakeFile);
+			
+			var fullText = System.IO.File.ReadAllText(fakeFile);
+			Assert.AreEqual(fullText, errorResponse + "\r\n");
+		}
+		
+		[Test]
+		public void Should_save_the_content_of_a_real_page_in_a_file(){
+			Nurl test = new Nurl();
+			
+			bool response = test.SaveTheContentOfAWebPage(fakeUrl, realFile);
+			
+			var fullText = System.IO.File.ReadAllText(realFile);
+			Assert.AreNotEqual(fullText, errorResponse + "\r\n");
+		}
 		
 		
 	}
