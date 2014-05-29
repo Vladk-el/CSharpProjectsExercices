@@ -42,7 +42,7 @@ namespace nurl
 			
 			try{
 				downloadString = client.DownloadString(url);
-			}catch(WebException e){
+			}catch(WebException){
 			}
 			
 			return downloadString;
@@ -53,13 +53,13 @@ namespace nurl
 			string downloadString = "<h1>hello</h1>";
 			try{
 				downloadString = client.DownloadString(url);
-			}catch(WebException e){
+			}catch(WebException){
 			}
 			try{
 				TextWriter tw = new StreamWriter(fileName);
 	            tw.WriteLine(downloadString);
 	            tw.Close();
-			}catch(Exception e){
+			}catch(Exception){
 				return false;
 			} 
 			return true;
@@ -76,7 +76,6 @@ namespace nurl
 		}
 		
 		public double ShowAverageDowloadTimeOfAWebPage(string url, int numberOfTimeToExecute){
-			string toReturn = "";
 			double averageDownloadedTime = 0;
 			
 			for(int i = 0; i < numberOfTimeToExecute; i++){
@@ -94,7 +93,7 @@ namespace nurl
 				DateTime after = DateTime.Now;
 				TimeSpan time = after - before;
 				return time.TotalMilliseconds;
-			}catch(WebException e){
+			}catch(WebException){
 				return 0;
 			}
 		}

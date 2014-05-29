@@ -26,9 +26,7 @@ namespace nurl
 			
 			try{
 				for(int i = 0; i < array.Length; i++){
-					Console.WriteLine(i + " : " + array[i]);
 					if(array[i] == "get"){
-						Console.WriteLine("get is here !");
 						if(array[i+1] == "-url"){
 							
 							if((array[i+2].StartsWith("\"") || array[i+2].EndsWith("\""))  && array[i+2].Length > 2){
@@ -54,10 +52,8 @@ namespace nurl
 						}
 					}
 					else if(array[i] == "test"){
-						Console.WriteLine("test is here !");
 						if(array[i+1] == "-url"){
 							if((array[i+2].StartsWith("\"") || array[i+2].EndsWith("\""))  && array[i+2].Length > 2){
-								Console.WriteLine("-url OK");
 								if(array[i+3] == "-times"){
 									
 									if(i+5 == array.Length){
@@ -83,7 +79,7 @@ namespace nurl
 						}
 					}
 				}
-			}catch(IndexOutOfRangeException e){
+			}catch(IndexOutOfRangeException){
 				
 			}
 			
@@ -91,17 +87,20 @@ namespace nurl
 		}
 		
 		public static void Main(string[] args)
-		{
-			Console.WriteLine("Hello NurlParams !");
-			
+		{	
 			NurlParams param = new NurlParams();
 			
-			string[] array = param.testBadSize();
+			//string[] array = param.testGetUrl();
+			//param.SelectNurlByParameters(array);
 			
-			Console.WriteLine(param.SelectNurlByParameters(array));
+			/*foreach(string s in args){
+				Console.WriteLine(s);
+			}*/
+			
+			param.SelectNurlByParameters(args);
 
-			Console.Write("Press any key to continue . . . ");
-			Console.ReadKey(true);
+			/*Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);*/
 		}
 		
 		public string[] testGetUrl(){
